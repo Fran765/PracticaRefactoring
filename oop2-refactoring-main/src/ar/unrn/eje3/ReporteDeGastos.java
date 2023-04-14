@@ -1,14 +1,14 @@
 package ar.unrn.eje3;
 
-import java.time.temporal.Temporal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ReporteDeGastos {
 
 	private List<Gasto> gastos;
-	private Temporal fecha;
+	private LocalDate fecha;
 
-	public ReporteDeGastos(List<Gasto> misGastos, Temporal unaFecha) {
+	public ReporteDeGastos(List<Gasto> misGastos, LocalDate unaFecha) {
 		this.gastos = misGastos;
 		this.fecha = unaFecha;
 	}
@@ -21,11 +21,9 @@ public class ReporteDeGastos {
 		String reporte = "Expenses " + this.fecha + ":\n";
 
 		for (Gasto gasto : gastos) {
-			if (gasto instanceof Cena || gasto instanceof Desayuno)
-				gastosDeComida += gasto.devolverMonto();
+			gastosDeComida += gasto.devolverMontoDeComida();
 
-			String marcaExcesoComidas = gasto instanceof Cena && gasto.devolverMonto() > 5000
-					|| gasto instanceof Desayuno && gasto.devolverMonto() > 1000 ? "X" : " ";
+			String marcaExcesoComidas = gasto.exceso();
 
 			reporte += (gasto.devolverNombre() + "\t" + gasto.devolverMonto() + "\t" + marcaExcesoComidas + "\n");
 

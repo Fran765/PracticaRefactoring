@@ -18,22 +18,32 @@ public class Recaudacion {
 
 		if (options.containsKey("company_name")) {
 
-			csvData = filtro((String[] op) -> op[1].equals(options.get("company_name")), csvData);
+			csvData = filtro((op) -> op[1].equals(options.get("company_name")), csvData);
+			
+//			csvData = filtro( new Condicion() {
+//				
+//				@Override
+//				public boolean condicion(String[] strings) {
+//					
+//					return strings[1].equals(options.get("company_name"));
+//					
+//				}
+//			},csvData);
 		}
 
 		if (options.containsKey("city")) {
 
-			csvData = filtro((String[] op) -> op[4].equals(options.get("city")), csvData);
+			csvData = filtro((op) -> op[4].equals(options.get("city")), csvData);
 		}
 
 		if (options.containsKey("state")) {
 
-			csvData = filtro((String[] op) -> op[5].equals(options.get("state")), csvData);
+			csvData = filtro((op) -> op[5].equals(options.get("state")), csvData);
 		}
 
 		if (options.containsKey("round")) {
 
-			csvData = filtro((String[] op) -> op[9].equals(options.get("round")), csvData);
+			csvData = filtro((op) -> op[9].equals(options.get("round")), csvData);
 		}
 
 		return cargarMapa(csvData);

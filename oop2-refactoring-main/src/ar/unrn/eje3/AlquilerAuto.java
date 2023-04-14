@@ -8,4 +8,14 @@ public class AlquilerAuto extends Gasto {
 		super(monto, nombre);
 	}
 
+	@Override
+	public int devolverMontoDeComida() {
+		return 0;
+	}
+
+	@Override
+	public String exceso() {
+		return " ";
+	}
+
 }

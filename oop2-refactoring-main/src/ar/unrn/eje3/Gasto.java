@@ -17,4 +17,8 @@ public abstract class Gasto {
 	public String devolverNombre() {
 		return nombre;
 	}
+	
+	public abstract int devolverMontoDeComida();
+	
+	public abstract String exceso();
 }

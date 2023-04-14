@@ -1,6 +1,5 @@
 package ar.unrn.eje3;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,9 @@ public class Main {
 		misGastos.add(cena);
 		misGastos.add(desayuno);
 
-		ReporteDeGastos miReporte = new ReporteDeGastos(misGastos, LocalDate.now());
+		ProvedorDeFecha hoy = new ImplementacionProvedorDeFecha();
+
+		ReporteDeGastos miReporte = new ReporteDeGastos(misGastos, hoy.devolverFecha());
 
 		System.out.println(miReporte.imprimir());
 

@@ -2,7 +2,6 @@ package ar.unrn.eje3;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,10 +20,12 @@ class ReporteTest {
 		misGastos.add(auto);
 		misGastos.add(cena);
 		misGastos.add(desayuno);
+		
+		FakeProovedorDeFecha prueba = new FakeProovedorDeFecha(); 
 
-		ReporteDeGastos miReporte = new ReporteDeGastos(misGastos, LocalDate.now());
+		ReporteDeGastos miReporte = new ReporteDeGastos(misGastos, prueba.devolverFecha());
 
-		String resultado1 = "Expenses " + LocalDate.now() + ":\n" + 
+		String resultado1 = "Expenses " + prueba.devolverFecha() + ":\n" + 
 				"Alquiler Auto" + "\t" + 8000 + "\t" + " " + "\n" + 
 				"Cena" + "\t" + 4000 + "\t" + " " + "\n" + 
 				"Desayuno" + "\t" + 3000 + "\t" + "X" + "\n" + 
